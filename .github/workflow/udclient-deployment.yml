@@ -16,7 +16,7 @@ jobs:
     name: udclient deployment on premisse
     runs-on: ""    
     steps:
-      - name: Set the value
+  - name: Set the value
     id: creating_version
     run: udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL createVersion -component ${{ inputs.application }} -name 1.0
   - name: Use the value
