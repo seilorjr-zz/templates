@@ -17,4 +17,8 @@ jobs:
       - id: get_version
         name: get version
         uses: battila7/get-version-action@v2
-      - run: echo ${{ steps.get_version.outputs.version }}  
+      - run: echo ${{ steps.get_version.outputs.version }}
+      - id: bump
+        uses: zwaldowski/match-label-action@v1
+        with:
+          allowed: major,minor,patch
