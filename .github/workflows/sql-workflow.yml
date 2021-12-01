@@ -21,6 +21,8 @@ jobs:
       - id: next_version
         name: next version
         uses: zwaldowski/semver-release-action@v1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         with:
           dry_run: true
           bump: minor
