@@ -40,7 +40,10 @@ jobs:
         run : mkdir files
       - name: validate enconding
         run : echo "validate encondig"
-      - uses: actions/upload-artifact@v2
+      - name:
+        run: echo  $env:GITHUB_SHA $env:GITHUB_RUN_ID $env:GITHUB_RUN_NUMBER
+      - name: upload artifacts
+        uses: actions/upload-artifact@v2
         with:
           name:  ${{ inputs.application }}
           path: |
