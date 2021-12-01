@@ -6,6 +6,9 @@ on:
       application:
         required: true
         type: string
+      jsonfilename:
+        required: true
+        type: string  
 
   workflow_dispatch:
     inputs:      
@@ -36,5 +39,5 @@ jobs:
       - name: Validate JSON
         uses: nhalstead/validate-json-action@0.1.3
         with:
-          schema: xxx-config.json
-          jsons: xxx-config.json            
+          schema: ${{ inputs.jsonfilename }}
+          jsons: ${{ inputs.jsonfilename }}           
