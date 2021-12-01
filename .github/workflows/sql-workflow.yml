@@ -36,5 +36,5 @@ jobs:
       - name: Validate JSON
         uses: nhalstead/validate-json-action@0.1.3
         with:
-          schema: /scripts/dbo.xxxx.sql
-          jsons: /scripts/dbo.xxxx.sql            
+          schema: xxx-config.json
+          jsons: xxx-config.json            
