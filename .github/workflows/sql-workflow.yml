@@ -25,3 +25,4 @@ jobs:
             dry_run: true
             bump: ${{ … }}
             github_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo "${{ steps.next_version.outputs.version }}"      
