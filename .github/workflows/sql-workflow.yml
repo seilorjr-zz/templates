@@ -46,7 +46,7 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name:  ${{ inputs.application }}-${{env.GITHUB_SHA}}
+          name:  ${{ inputs.application }}-${{ github.sha }}
           path: |
            ${{ github.workspace }}/scripts
            ${{ github.workspace }}/*.json               
