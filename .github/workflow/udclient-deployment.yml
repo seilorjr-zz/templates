@@ -1,4 +1,4 @@
-name : udclient-deployment
+name: udclient-deployment
 
 on:
   workflow_call:
@@ -7,18 +7,18 @@ on:
         required: true
         type: string
 env:
-    WEBURL: https://ucdprd.itau
-    UDUSER: admin
-    UDPASSWROD: ${{secrets.UD_PASSWROD}}
+  WEBURL: https://ucdprd.itau
+  UDUSER: admin
+  UDPASSWROD: ${{secrets.UD_PASSWROD}}
 
 jobs:
   build:
     name: udclient deployment on premisse
-    runs-on: ""    
+    runs-on: ""
     steps:
-  - name: Set the value
-    id: creating_version
-    run: udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL createVersion -component ${{ inputs.application }} -name 1.0
-  - name: Use the value
-    id: adding_files
-    run: udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL addVersionFiles -component ${{ inputs.application }} -version 1.0 -base files
+      - name: Set the value
+        id: creating_version
+        run: udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL createVersion -component ${{ inputs.application }} -name 1.0
+      - name: Use the value
+        id: adding_files
+        run: udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL addVersionFiles -component ${{ inputs.application }} -version 1.0 -base files
