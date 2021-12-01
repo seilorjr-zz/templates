@@ -12,5 +12,9 @@ jobs:
     name: sql prepare for deploy
     runs-on: "windows-latest"    
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v2
+      - id: get_version
+        name: get version
+        uses: battila7/get-version-action@v2
+      - run: echo ${{ steps.get_version.outputs.version }}  
