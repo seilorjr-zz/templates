@@ -1,0 +1,24 @@
+name: udclient-workflow
+
+on:
+  workflow_call:
+    inputs:
+      application:
+        required: true
+        type: string
+env:
+  WEBURL: https://ucdprd.itau
+  UDUSER: admin
+  UDPASSWROD: ${{secrets.UD_PASSWROD}}
+
+jobs:
+  build:
+    name: udclient deployment on premisse    
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: ${{ inputs.application }}-${{ github.sha }}    
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      
