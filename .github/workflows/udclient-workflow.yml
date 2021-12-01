@@ -27,5 +27,6 @@ jobs:
       - name: Use the value
         id: adding_files
         run: echo "udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL addVersionFiles -component ${{ inputs.application }} -version 1.0 -base files"
-
+      - name: runs docker
+        uses: docker://seilor/udclient:1.0.0
       
