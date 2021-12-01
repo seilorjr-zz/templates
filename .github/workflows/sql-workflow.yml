@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: sql prepare for deploy
+    name: sql process 
     runs-on: ubuntu-latest   
     steps:
       - name: checkout
@@ -46,7 +46,7 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name:  ${{ inputs.application }}-"$GITHUB_SHA"
+          name:  ${{ inputs.application }}-${{env.GITHUB_SHA}}
           path: |
            ${{ github.workspace }}/scripts
            ${{ github.workspace }}/*.json               
