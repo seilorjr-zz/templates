@@ -27,4 +27,9 @@ jobs:
           dry_run: true
           bump: minor
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo "${{ steps.next_version.outputs.version }}"      
+      - run: echo "${{ steps.next_version.outputs.version }}"
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: /scripts/dbo.xxxx.sql
+          INPUT_JSONS: /scripts/dbo.xxxx.sql     
