@@ -40,4 +40,8 @@ jobs:
         uses: nhalstead/validate-json-action@0.1.3
         with:
           schema: ${{ inputs.jsonfilename }}
-          jsons: ${{ inputs.jsonfilename }}           
+          jsons: ${{ inputs.jsonfilename }}
+      - name: create directory
+        run : mkdir files
+      - name: validate enconding
+        echo: "validate encondig"                 
