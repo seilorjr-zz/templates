@@ -18,7 +18,10 @@ jobs:
         name: get version
         uses: battila7/get-version-action@v2
       - run: echo ${{ steps.get_version.outputs.version }}
-      - id: bump
-        uses: zwaldowski/match-label-action@v1
-        with:
-          allowed: major,minor,patch
+      - id: next_version
+        name: next version
+        uses: zwaldowski/semver-release-action@v1
+          with:
+            dry_run: true
+            bump: ${{ … }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
