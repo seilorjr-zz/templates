@@ -39,4 +39,8 @@ jobs:
       - name: create directory
         run : mkdir files
       - name: validate enconding
-        run : echo "validate encondig"                
+        run : echo "validate encondig"
+      - uses: actions/upload-artifact@v2
+        with:
+          name:  ${{ inputs.application }}
+          path: ${{ github.workspace }}                
