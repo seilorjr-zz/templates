@@ -1,0 +1,13 @@
+name: "connect to urban code deploy"
+description: "create a version e send the files to urban code deploy"
+
+inputs:
+  application:
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+  - name: test composite
+    run : echo test composite    
