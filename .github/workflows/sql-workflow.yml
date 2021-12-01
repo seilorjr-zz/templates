@@ -41,7 +41,7 @@ jobs:
       - name: validate enconding
         run : echo "validate encondig"
       - name:
-        run: echo  $env:GITHUB_SHA $env:GITHUB_RUN_ID $env:GITHUB_RUN_NUMBER
+        run: echo "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_NUMBER"
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
