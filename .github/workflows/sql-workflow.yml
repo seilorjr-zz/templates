@@ -7,6 +7,11 @@ on:
         required: true
         type: string
 
+  workflow_dispatch:
+    inputs:      
+      mode:
+        description: 'Running mode'      
+
 jobs:
   build:
     name: sql prepare for deploy
