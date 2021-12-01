@@ -40,12 +40,12 @@ jobs:
         run : mkdir files
       - name: validate enconding
         run : echo "validate encondig"
-      - name:
+      - name: print sha run_id and run_number
         run: echo "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_NUMBER"
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name:  ${{ inputs.application }}
+          name:  ${{ inputs.application }}-$GITHUB_SHA
           path: |
            ${{ github.workspace }}/scripts
            ${{ github.workspace }}/*.json               
