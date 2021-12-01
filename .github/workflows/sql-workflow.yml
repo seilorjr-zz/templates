@@ -8,12 +8,7 @@ on:
         type: string
       jsonfilename:
         required: true
-        type: string  
-
-  workflow_dispatch:
-    inputs:      
-      mode:
-        description: 'Running mode'      
+        type: string        
 
 jobs:
   build:
