@@ -39,4 +39,4 @@ jobs:
       - name: create directory
         run : mkdir files
       - name: validate enconding
-        echo: "validate encondig"                 
+        run : echo "validate encondig"                 
