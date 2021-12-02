@@ -1,0 +1,19 @@
+name : asp-workflow
+
+on:
+  workflow_call:
+    inputs:
+      application:
+        required: true
+        type: string
+      jsonfilename:
+        required: true
+        type: string        
+
+jobs:
+  build:
+    name: asp process 
+    runs-on: ubuntu-latest   
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
