@@ -32,7 +32,9 @@ jobs:
             git add .
             git commit -m "Bump version"
             git push
-            echo ::set-output name=sha::$(git rev-parse HEAD)    
+            echo ::set-output name=sha::$(git rev-parse HEAD)  
+        with:          
+          github_token: ${{ secrets.GITHUB_TOKEN }}      
       - run: echo "${{ steps.next_version.outputs.version }}" 
       - name: upload artifacts
         uses: actions/upload-artifact@v2
