@@ -31,7 +31,7 @@ jobs:
       - name: push the udclient image
         run: docker pull seilor/udclient:alpine-latest  
       - name: runs docker
-        run: docker container run seilor/udclient:alpine-latest java -jar udclient.jar --username ${{env.UDUSER}} --password ${{env.UDPASSWROD}} --weburl ${{env.WEBURL}} createVersion --component ${{ inputs.application }} --name 1.0
+        run: docker container run seilor/udclient:alpine-latest java -jar udclient.jar --weburl ${{env.WEBURL}} --username ${{env.UDUSER}} --password ${{env.UDPASSWROD}}  createVersion --component ${{ inputs.application }} --name 1.0
         #run: docker run --rm -e DS_WEB_URL=${{env.WEBURL}} -e DS_USERNAME=${{env.UDUSER}} -e DS_PASSWORD=${{env.UDPASSWROD}} seilor/udclient:1.0.0
         continue-on-error: true
         #uses: docker://seilor/udclient:1.0.0
