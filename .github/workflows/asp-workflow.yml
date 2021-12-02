@@ -15,27 +15,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       
-      #- id: get_version
-      #  name: get version
-      #  uses: battila7/get-version-action@v2
-      #- run: echo ${{ steps.get_version.outputs.version }}
-      - id: next_version
-        name: next version
-        uses: zwaldowski/semver-release-action@v1
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+     - uses: Actions-R-Us/actions-tagger@latest
         with:
-          dry_run: true
-          bump: minor
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-            git add .
-            git commit -m "Bump version"
-            git push
-            echo ::set-output name=sha::$(git rev-parse HEAD)  
-        with:          
-          github_token: ${{ secrets.GITHUB_TOKEN }}      
-      - run: echo "${{ steps.next_version.outputs.version }}" 
+          publish_latest_tag: true 
       - name: upload artifacts
         uses: actions/upload-artifact@v2
         with:
