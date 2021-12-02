@@ -5,10 +5,7 @@ on:
     inputs:
       application:
         required: true
-        type: string
-      jsonfilename:
-        required: true
-        type: string        
+        type: string              
 
 jobs:
   build:
