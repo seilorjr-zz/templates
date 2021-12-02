@@ -14,9 +14,10 @@ env:
 jobs:
   build:
     name: udclient deployment on premisse
-    runs-on: ubuntu-latest   
-    steps:     
-      - uses: actions/download-artifact@v2
+    runs-on: ubuntu-latest   #it needs to run in self hosted runners
+    steps:
+      - name: dowload the artifacts     
+        uses: actions/download-artifact@v2
         with:
           name: ${{ inputs.application }}-${{ github.sha }}    
       - name: Display structure of downloaded files
