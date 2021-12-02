@@ -1,0 +1,25 @@
+name : pyinkr-workflow
+
+on:
+  workflow_call:
+    inputs:
+      application:
+        required: true
+        type: string
+
+jobs:
+  build:
+    name: pyinkr deployment on premisse
+    runs-on: ubuntu-latest   #it needs to run in self hosted runners
+    steps:     
+      - name: dowload the artifacts     
+        uses: actions/download-artifact@v2
+        with:
+          name: ${{ inputs.application }}-${{ github.sha }}
+      - name: Display structure of downloaded files
+        run: ls -R  
+     -  name: curl
+        uses: wei/curl@master
+        with:
+            args: https://httpbin.org/get
+            # args: --upload-file .github/workflows/main.yml https://transfer.sh/main-workflow.yml             
