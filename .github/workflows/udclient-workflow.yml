@@ -27,6 +27,8 @@ jobs:
       - name: Use the value
         id: adding_files
         run: echo "udclient -username $UDUSER -password $UDPASSWROD -weburl $WEBURL addVersionFiles -component ${{ inputs.application }} -version 1.0 -base files"
+      - name: push the udclient image
+        run: docker pull seilor/udclient:alpine-latest  
       - name: runs docker
         run: docker container run seilor/udclient:alpine-latest java -jar udclient.jar -username ${{env.UDUSER}} -password ${{env.UDPASSWROD}} -weburl ${{env.WEBURL}} createVersion -component ${{ inputs.application }} -name 1.0
         #run: docker run --rm -e DS_WEB_URL=${{env.WEBURL}} -e DS_USERNAME=${{env.UDUSER}} -e DS_PASSWORD=${{env.UDPASSWROD}} seilor/udclient:1.0.0
