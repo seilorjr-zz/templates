@@ -48,4 +48,5 @@ jobs:
           name:  ${{ inputs.application }}-${{ github.sha }}
           path: |
            ${{ github.workspace }}/scripts
-           ${{ github.workspace }}/*.json               
+           ${{ github.workspace }}/*.json
+          if-no-files-found: error             
